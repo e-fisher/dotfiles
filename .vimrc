@@ -229,3 +229,7 @@ let g:gitgutter_max_signs = 1000
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
+
+" exclude files for easygrep plugin
+let g:EasyGrepFilesToExclude=".svn,.git,tags"
+let g:EasyGrepRecursive=1
