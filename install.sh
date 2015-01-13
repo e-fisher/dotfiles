@@ -25,9 +25,9 @@ echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
 for file in !(.|..|.git|install.sh); do
-    mv ~/$file $olddir/    
+    mv ~/$file $olddir/
     echo "== creating symlink $dir/$file ~/$file"
     ln -sT $dir/$file ~/$file
 done
