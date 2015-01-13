@@ -211,7 +211,7 @@ augroup myvimrc
 augroup END
 
 " git
-map <leader>b :Gblame<cr>
+map <leader>b :Gblame -w<cr>
 map <leader>gd :Gdiff<cr>
 map <leader>gr :GitGutterRevertHunk<cr>
 map <leader>gp :GitGutterPreviewHunk<cr>
@@ -220,9 +220,12 @@ map <leader>gp :GitGutterPreviewHunk<cr>
 set autoread 
 au CursorHold * checktime 
 
+" tag find
 nnoremap <leader>. :CtrlPTag<cr>
 
+" git gutter
 let g:gitgutter_max_signs = 1000
+" let g:gitgutter_diff_args = '-w'
 
 
 " <CTRL-s> to save
