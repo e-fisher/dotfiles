@@ -1,0 +1,21 @@
+[user]
+	name = Edgar Fisher
+	email = fisher.edgar@gmail.com
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+[branch]
+	autosetuprebase = always
+[alias]
+    br = branch
+    ci = commit -a -v
+    co = checkout
+    df = diff --word-diff
+    g = grep -I
+    lg = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
+    st = status --ignore-submodules -sb
+    mg = merge --no-commit
+	fp = ftp push
+	fi = ftp init -A
+[credential]
+	helper = cache --timeout=3600
