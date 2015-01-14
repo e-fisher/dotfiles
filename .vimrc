@@ -241,3 +241,8 @@ autocmd FileType php setlocal shiftwidth=4 tabstop=4
 
 " remap : to ;
 nnoremap ; :
+
+" use an undo file to preserve history
+set undofile
+" set a directory to store the undo history
+set undodir=~/.vimundo/
