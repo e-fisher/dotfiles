@@ -37,12 +37,14 @@ set scrolloff=2                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
 " set list listchars=tab:»·,trail:· " show extra space characters
 set nofoldenable                  " disable code folding
-set clipboard=unnamedplus             " use the system clipboard
+set clipboard=unnamedplus         " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
 set lazyredraw                    " improve scroll performance
 set noswapfile                    " no swp files
-set updatetime=750
+set updatetime=750                " faster update for gitgutter
+set history=1000                  " remember more commands and search history
+set undolevels=1000               " use many muchos levels of undo
 
 runtime macros/matchit.vim        " use % to jump between start/end of methods
 
@@ -236,3 +238,6 @@ let g:ag_prg="ag --vimgrep --ignore tags"
 " 4 space indentation for html and php
 autocmd FileType html setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
+
+" remap : to ;
+nnoremap ; :
