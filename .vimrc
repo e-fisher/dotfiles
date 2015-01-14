@@ -204,11 +204,9 @@ map <Leader>rt :%s/\s\+$//<cr>
 " space after comment sign
 let NERDSpaceDelims = 1
 
-" autoreload vim on vimrc changes
-augroup myvimrc
-    au!
-    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>rv :so $MYVIMRC<CR>
 
 " git
 map <leader>b :Gblame -w<cr>
@@ -217,8 +215,8 @@ map <leader>gr :GitGutterRevertHunk<cr>
 map <leader>gp :GitGutterPreviewHunk<cr>
 
 " detect changes outside vim
-set autoread 
-au CursorHold * checktime 
+set autoread
+au CursorHold * checktime
 
 " tag find
 nnoremap <leader>. :CtrlPTag<cr>
@@ -234,3 +232,7 @@ vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
 
 let g:ag_prg="ag --vimgrep --ignore tags"
+
+" 4 space indentation for html and php
+autocmd FileType html setlocal shiftwidth=4 tabstop=4
+autocmd FileType php setlocal shiftwidth=4 tabstop=4
