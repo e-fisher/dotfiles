@@ -64,3 +64,12 @@
 [submodule ".vim/bundle/vim-startify"]
 	path = .vim/bundle/vim-startify
 	url = https://github.com/mhinz/vim-startify
+[submodule ".vim/bundle/solorazied"]
+	path = .vim/bundle/solorazied
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule ".vim/bundle/jellybeans"]
+	path = .vim/bundle/jellybeans
+	url = https://github.com/nanotech/jellybeans.vim
+[submodule ".vim/bundle/tomorrow-theme"]
+	path = .vim/bundle/tomorrow-theme
+	url = https://github.com/chriskempson/vim-tomorrow-theme
