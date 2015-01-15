@@ -10,13 +10,15 @@ call pathogen#helptags()
 
 " 256 colours, please
 set t_Co=256
-" Dark solarized scheme
+
+" Color scheme
 set background=dark
 colorscheme hybrid
-
+let g:airline_theme='tomorrow'
 
 syntax on                         " show syntax highlighting
 filetype plugin indent on
+
 set autoindent                    " set auto indent
 set ts=2                          " set indent to 2 spaces
 set shiftwidth=2
@@ -29,13 +31,10 @@ set hlsearch                      " highlight all search matches
 " set cursorline                    " highlight current line
 set smartcase                     " pay attention to case when caps are used
 set incsearch                     " show search results as I type
-" set mouse=a                       " enable mouse support
 set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
-" set vb                            " enable visual bell (disable audio bell)
 set ruler                         " show row and column in footer
 set scrolloff=2                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
-" set list listchars=tab:»·,trail:· " show extra space characters
 set nofoldenable                  " disable code folding
 set clipboard=unnamedplus         " use the system clipboard
 set wildmenu                      " enable bash style tab completion
@@ -58,10 +57,6 @@ if exists('+colorcolumn')
   set colorcolumn=80
 endif
 
-
-" line number color
-highlight LineNr       ctermbg=black ctermfg=DarkGrey
-
 " highlight trailing spaces in annoying red
 highlight ExtraWhitespace ctermbg=1 guibg=red
 match ExtraWhitespace /\s\+$/
@@ -79,8 +74,6 @@ imap <F5> <ESC>:setlocal spell! spelllang=en_us<cr>
 
 " Visual decorations
 
-" Show status line
-set laststatus=2
 " Show what mode you’re currently in
 set showmode
 " Show what commands you’re typing
@@ -252,6 +245,8 @@ set undodir=~/.vimundo/
 
 let g:airline_powerline_fonts = 1
 
+let g:ctrlp_reuse_window  = 'startify'
+let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header = [
 \ '                                 ________  __ __',
 \ '            __                  /\_____  \/\ \\ \',
