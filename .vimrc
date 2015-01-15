@@ -211,10 +211,13 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>rv :so $MYVIMRC<CR>
 
 " git
-map <leader>b :Gblame -w<cr>
+map <leader>gb :Gblame -w<cr>
 map <leader>gd :Gdiff<cr>
 map <leader>gr :GitGutterRevertHunk<cr>
 map <leader>gp :GitGutterPreviewHunk<cr>
+map <leader>gw :Gwrite<cr>
+map <leader>gc :Gcommit -a<cr>
+map <leader>gs :Gstatus<cr>
 
 " detect changes outside vim
 set autoread
