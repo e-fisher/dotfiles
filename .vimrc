@@ -28,7 +28,7 @@ set number
 set showmatch                     " show bracket matches
 set ignorecase                    " ignore case in search
 set hlsearch                      " highlight all search matches
-" set cursorline                    " highlight current line
+set cursorline                    " highlight current line
 set smartcase                     " pay attention to case when caps are used
 set incsearch                     " show search results as I type
 set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
@@ -58,18 +58,16 @@ autocmd FileType eruby setlocal colorcolumn=80
 autocmd FileType haml setlocal colorcolumn=80
 
 " highlight trailing spaces in annoying red
-highlight ExtraWhitespace ctermbg=1 guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+" highlight ExtraWhitespace ctermbg=1 guibg=red
+" match ExtraWhitespace /\s\+$/
+" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+" autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+" autocmd BufWinLeave * call clearmatches()
 
 " toggle spell check with <F5>
 map <F5> :setlocal spell! spelllang=en_us<cr>
 imap <F5> <ESC>:setlocal spell! spelllang=en_us<cr>
-
-
 
 
 " Visual decorations
@@ -171,7 +169,7 @@ if version >= 700
   au InsertLeave * hi StatusLine ctermbg=233 ctermfg=DarkGray
 endif
 
-" clear search highlight with esc
+" clear search highlight with enter
 nnoremap <CR> :noh<CR><CR>
 
 " quick save
@@ -184,7 +182,7 @@ map <C-n> :NERDTreeToggle<CR>
 map <Leader>rt :%s/\s\+$//<cr>
 
 " remove trailling spaces on save
-" autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
 
 " space after comment sign
 let NERDSpaceDelims = 1
@@ -225,7 +223,7 @@ let g:ag_prg="ag --vimgrep --ignore tags"
 autocmd FileType html setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
 
-" remap : to ;
+" remap ; to :
 nnoremap ; :
 
 " use an undo file to preserve history
