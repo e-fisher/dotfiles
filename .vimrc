@@ -234,18 +234,29 @@ set undodir=~/.vimundo/
 let g:airline_powerline_fonts = 1
 
 let g:ctrlp_reuse_window  = 'startify'
+
 let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header = [
-\ '                                 ________  __ __',
-\ '            __                  /\_____  \/\ \\ \',
-\ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \',
-\ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_',
-\ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
-\ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/',
-\ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/',
-\ '',
-\ '',
-\ ]
+    \ '                                 ________  __ __',
+    \ '            __                  /\_____  \/\ \\ \',
+    \ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \',
+    \ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_',
+    \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
+    \ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/',
+    \ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/',
+    \ '',
+    \ '',
+    \ ]
+
+let g:startify_list_order = [['   Recent project files'], 'dir', ['   Recent files'], 'files']
+let g:startify_skiplist = [
+    \ 'COMMIT_EDITMSG',
+    \ $VIMRUNTIME .'/doc',
+    \ 'bundle/.*/doc',
+    \ '.vimgolf',
+    \ '.git',
+    \ 'tags',
+    \ ]
 
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 set completeopt-=preview
