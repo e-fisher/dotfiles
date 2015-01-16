@@ -73,3 +73,6 @@
 [submodule ".vim/bundle/tomorrow-theme"]
 	path = .vim/bundle/tomorrow-theme
 	url = https://github.com/chriskempson/vim-tomorrow-theme
+[submodule ".vim/bundle/supertab"]
+	path = .vim/bundle/supertab
+	url = https://github.com/ervandew/supertab

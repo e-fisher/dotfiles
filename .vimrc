@@ -53,9 +53,9 @@ set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
 
 " hint to keep lines short
-if exists('+colorcolumn')
-  set colorcolumn=80
-endif
+autocmd FileType ruby setlocal colorcolumn=80
+autocmd FileType eruby setlocal colorcolumn=80
+autocmd FileType haml setlocal colorcolumn=80
 
 " highlight trailing spaces in annoying red
 highlight ExtraWhitespace ctermbg=1 guibg=red
@@ -91,17 +91,7 @@ autocmd BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
-" multi-purpose tab key (auto-complete)
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
+
 
 " rename current file, via Gary Bernhardt
 function! RenameFile()
@@ -258,3 +248,6 @@ let g:startify_custom_header = [
 \ '',
 \ '',
 \ ]
+
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+set completeopt-=preview
