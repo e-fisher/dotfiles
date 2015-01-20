@@ -215,7 +215,7 @@ let g:gitgutter_max_signs = 1000
 " <CTRL-s> to save
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
+inoremap <silent> <C-S>         <C-[>:update<CR>
 
 let g:ag_prg="ag --vimgrep --ignore tags"
 
@@ -224,7 +224,7 @@ autocmd FileType html setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
 
 " remap ; to :
-nnoremap ; :
+" nnoremap ; :
 
 " use an undo file to preserve history
 set undofile
@@ -258,5 +258,10 @@ let g:startify_skiplist = [
     \ 'tags',
     \ ]
 
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+" let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 set completeopt-=preview
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
