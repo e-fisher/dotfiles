@@ -33,7 +33,7 @@ set smartcase                     " pay attention to case when caps are used
 set incsearch                     " show search results as I type
 set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
 set ruler                         " show row and column in footer
-set scrolloff=2                   " minimum lines above/below cursor
+set scrolloff=4                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
 set nofoldenable                  " disable code folding
 set clipboard=unnamedplus         " use the system clipboard
@@ -215,7 +215,7 @@ let g:gitgutter_max_signs = 1000
 " <CTRL-s> to save
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-[>:update<CR>
+inoremap <silent> <C-S>         <Esc>:update<CR>
 
 let g:ag_prg="ag --vimgrep --ignore tags"
 
