@@ -79,3 +79,6 @@
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips
+[submodule ".vim/bundle/better-indent-support-for-php-with-html"]
+	path = .vim/bundle/better-indent-support-for-php-with-html
+	url = https://github.com/captbaritone/better-indent-support-for-php-with-html
