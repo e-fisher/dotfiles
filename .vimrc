@@ -182,7 +182,14 @@ map <C-n> :NERDTreeToggle<CR>
 map <Leader>rt :%s/\s\+$//<cr>
 
 " remove trailling spaces on save
-autocmd BufWritePre * :%s/\s\+$//e
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " space after comment sign
 let NERDSpaceDelims = 1
