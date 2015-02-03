@@ -13,7 +13,7 @@ set t_Co=256
 
 " Color scheme
 set background=dark
-colorscheme hybrid
+colorscheme jellybeans
 let g:airline_theme='tomorrow'
 
 syntax on                         " show syntax highlighting
@@ -217,6 +217,8 @@ nnoremap <leader>. :CtrlPTag<cr>
 " git gutter
 let g:gitgutter_max_signs = 1000
 " let g:gitgutter_diff_args = '-w'
+" same color for sign column as line number
+highlight clear SignColumn
 
 
 " <CTRL-s> to save
