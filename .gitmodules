@@ -82,3 +82,6 @@
 [submodule ".vim/bundle/better-indent-support-for-php-with-html"]
 	path = .vim/bundle/better-indent-support-for-php-with-html
 	url = https://github.com/captbaritone/better-indent-support-for-php-with-html
+[submodule ".vim/bundle/emmet-vim"]
+	path = .vim/bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim
