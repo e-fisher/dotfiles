@@ -274,3 +274,9 @@ set completeopt-=preview
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Quickly navigate between buffers
+nnoremap gb :ls<CR>:b<Space>
+nnoremap <PageUp>   :bprevious<CR>
+nnoremap <PageDown> :bnext<CR>
+nnoremap <C-q> <C-^>
