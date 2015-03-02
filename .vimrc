@@ -24,6 +24,7 @@ set ts=2                          " set indent to 2 spaces
 set shiftwidth=2
 set expandtab                     " use spaces, not tab characters
 set nocompatible                  " don't need to be compatible with old vim
+set relativenumber
 set number
 set showmatch                     " show bracket matches
 set ignorecase                    " ignore case in search
