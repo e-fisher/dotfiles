@@ -1,0 +1,9 @@
+*.min*
+*-min*
+*_min*
+*.min.*
+bundle
+min
+vendor
+tags
+cscope.*
