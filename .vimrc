@@ -57,6 +57,7 @@ set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 autocmd FileType ruby setlocal colorcolumn=80
 autocmd FileType eruby setlocal colorcolumn=80
 autocmd FileType haml setlocal colorcolumn=80
+autocmd FileType slim setlocal colorcolumn=80
 
 " highlight trailing spaces in annoying red
 " highlight ExtraWhitespace ctermbg=1 guibg=red
@@ -232,6 +233,7 @@ let g:ag_prg="ag --vimgrep --ignore tags"
 " 4 space indentation for html and php
 autocmd FileType html setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
+autocmd FileType slim setlocal shiftwidth=2 tabstop=2
 
 " remap ; to :
 " nnoremap ; :
