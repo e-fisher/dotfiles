@@ -283,3 +283,6 @@ nnoremap gb :ls<CR>:b<Space>
 nnoremap <PageUp>   :bprevious<CR>
 nnoremap <PageDown> :bnext<CR>
 nnoremap <C-q> <C-^>
+
+" Autoreload vimrc
+au BufWritePost .vimrc so $MYVIMRC
