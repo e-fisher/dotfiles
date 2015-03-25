@@ -103,7 +103,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 alias lampp="sudo /opt/lampp/lampp"
 export PATH="/usr/local/heroku/bin:$PATH"
 export EDITOR='vim'
-source ~/.bin/tmuxinator.bash
+# source ~/.bin/tmuxinator.bash
 export TERM=screen-256color
 
 # disable freeze when pressing <CTRL-s>
