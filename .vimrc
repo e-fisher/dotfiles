@@ -4,6 +4,9 @@ set encoding=utf-8
 " No compatibility
 set nocompatible
 
+" Remap leader to space
+let mapleader = "\<Space>"
+
 " load up pathogen and all bundles
 call pathogen#infect()
 call pathogen#helptags()
@@ -217,6 +220,7 @@ au CursorHold * checktime
 nnoremap <leader>. :CtrlPTag<cr>
 
 " git gutter
+let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 1000
 " let g:gitgutter_diff_args = '-w'
 " same color for sign column as line number
@@ -284,5 +288,25 @@ nnoremap <PageUp>   :bprevious<CR>
 nnoremap <PageDown> :bnext<CR>
 nnoremap <C-q> <C-^>
 
-" Autoreload vimrc
-au BufWritePost .vimrc so $MYVIMRC
+let g:hardtime_default_on = 1
+
+" Easymotion search
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+" Easymotion nav
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+" nmap s <Plug>(easymotion-s)
+nmap s <Plug>(easymotion-s2)
+let g:EasyMotion_smartcase = 1
