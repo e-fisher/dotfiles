@@ -108,3 +108,13 @@ export TERM=screen-256color
 
 # disable freeze when pressing <CTRL-s>
 stty -ixon
+
+# rails aliases
+alias rs="rails s"
+alias rc="spring rails c"
+alias rg="spring rails g"
+alias bn="bundle install"
+alias rk="spring rake"
+alias rt="spring rspec"
+alias rmg="spring rake db:migrate"
+alias rrb="spring rake db:rollback"
