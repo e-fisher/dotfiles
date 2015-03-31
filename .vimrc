@@ -4,12 +4,60 @@ set encoding=utf-8
 " No compatibility
 set nocompatible
 
+" required
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'rking/ag.vim'
+Plugin 'jiangmiao/auto-pairs.git'
+Plugin 'chriskempson/base16-vim.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdcommenter.git'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'Chiel92/vim-autoformat.git'
+Plugin 'tpope/vim-bundler.git'
+Plugin 'tpope/vim-endwise.git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter.git'
+Plugin 'w0ng/vim-hybrid.git'
+Plugin 'tpope/vim-rails.git'
+Plugin 'vim-ruby/vim-ruby.git'
+Plugin 'tpope/vim-surround.git'
+Plugin 'nelstrom/vim-textobj-rubyblock.git'
+Plugin 'kana/vim-textobj-user.git'
+Plugin 'wakatime/vim-wakatime.git'
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'mhinz/vim-startify'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'ervandew/supertab'
+Plugin 'SirVer/ultisnips'
+Plugin 'captbaritone/better-indent-support-for-php-with-html'
+Plugin 'mattn/emmet-vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'takac/vim-hardtime'
+Plugin 'slim-template/vim-slim'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'Lokaltog/vim-easymotion'
+"
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 " Remap leader to space
 let mapleader = "\<Space>"
 
 " load up pathogen and all bundles
-call pathogen#infect()
-call pathogen#helptags()
+" call pathogen#infect()
+" call pathogen#helptags()
 
 " 256 colours, please
 set t_Co=256
