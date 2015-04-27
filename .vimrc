@@ -47,6 +47,7 @@ Plugin 'takac/vim-hardtime'
 Plugin 'slim-template/vim-slim'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Valloric/YouCompleteMe'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -357,7 +358,9 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 
-let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-" nmap s <Plug>(easymotion-s)
-nmap s <Plug>(easymotion-s2)
+" let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+nmap s <Plug>(easymotion-s)
+" nmap s <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
+
+let g:gutentags_exclude = ['*.js']
