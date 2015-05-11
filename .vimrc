@@ -15,7 +15,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'rking/ag.vim'
 Plugin 'jiangmiao/auto-pairs.git'
-Plugin 'chriskempson/base16-vim.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'scrooloose/nerdtree.git'
@@ -24,7 +23,6 @@ Plugin 'tpope/vim-bundler.git'
 Plugin 'tpope/vim-endwise.git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter.git'
-Plugin 'w0ng/vim-hybrid.git'
 Plugin 'tpope/vim-rails.git'
 Plugin 'vim-ruby/vim-ruby.git'
 Plugin 'tpope/vim-surround.git'
@@ -34,9 +32,7 @@ Plugin 'wakatime/vim-wakatime.git'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'mhinz/vim-startify'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
@@ -48,7 +44,8 @@ Plugin 'slim-template/vim-slim'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Valloric/YouCompleteMe'
-"
+Plugin 'nathanaelkane/vim-indent-guides'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -260,6 +257,8 @@ map <leader>gp :GitGutterPreviewHunk<cr>
 map <leader>gw :Gwrite<cr>
 map <leader>gc :Gcommit -a<cr>
 map <leader>gs :Gstatus<cr>
+map <leader>ga :Git add -A<cr>
+
 
 " detect changes outside vim
 set autoread
@@ -359,8 +358,8 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 
 " let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-nmap s <Plug>(easymotion-s)
-" nmap s <Plug>(easymotion-s2)
+" nmap s <Plug>(easymotion-s)
+nmap s <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
 
 let g:gutentags_exclude = ['*.js']
