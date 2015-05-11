@@ -95,3 +95,6 @@ alias rk="spring rake"
 alias rt="spring rspec"
 alias rmg="spring rake db:migrate"
 alias rrb="spring rake db:rollback"
+
+
+export EDITOR='vim'
