@@ -363,3 +363,4 @@ nmap s <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
 
 let g:gutentags_exclude = ['*.js']
+command W w !sudo tee % > /dev/null
