@@ -45,6 +45,7 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'justinmk/vim-gtfo'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
