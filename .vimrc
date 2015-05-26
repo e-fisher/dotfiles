@@ -365,3 +365,6 @@ let g:EasyMotion_smartcase = 1
 
 let g:gutentags_exclude = ['*.js']
 command W w !sudo tee % > /dev/null
+
+" use blowfish2 for encryption
+set cm=blowfish2
