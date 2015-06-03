@@ -298,7 +298,8 @@ set undodir=~/.vimundo/
 
 let g:airline_powerline_fonts = 1
 
-let g:ctrlp_reuse_window  = 'startify'
+" No split for startify when opening nerdtree or ctrlp
+autocmd User Startified setlocal buftype=
 
 let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header = [
