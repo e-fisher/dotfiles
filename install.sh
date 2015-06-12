@@ -26,7 +26,7 @@ cd $dir
 echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
-for file in !(.|..|.git|.gitmodules|install.sh); do
+for file in !(.|..|.git|.gitmodules|install.sh|README.md); do
     mv ~/$file $olddir/
     echo "== creating symlink $dir/$file ~/$file"
     ln -sT $dir/$file ~/$file
