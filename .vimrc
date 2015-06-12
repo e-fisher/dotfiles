@@ -383,3 +383,8 @@ augroup BWCCreateDir
     autocmd!
     autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
+
+" underscore word boundary
+set iskeyword-=_
+
+let g:ycm_collect_identifiers_from_tags_files = 1
