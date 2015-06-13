@@ -43,7 +43,6 @@ Plugin 'takac/vim-hardtime'
 Plugin 'slim-template/vim-slim'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'justinmk/vim-gtfo'
 
@@ -325,6 +324,7 @@ let g:startify_skiplist = [
     \ ]
 
 " let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabDefaultCompletionType = "<c-n>"
 set completeopt-=preview
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -385,6 +385,4 @@ augroup BWCCreateDir
 augroup END
 
 " underscore word boundary
-set iskeyword-=_
-
-let g:ycm_collect_identifiers_from_tags_files = 1
+" set iskeyword-=_
