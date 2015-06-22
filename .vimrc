@@ -386,3 +386,6 @@ augroup END
 
 " underscore word boundary
 " set iskeyword-=_
+
+" ignore tmp for ctrlp
+set wildignore+=*/tmp/*
