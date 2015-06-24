@@ -45,6 +45,7 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'justinmk/vim-gtfo'
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -389,3 +390,11 @@ augroup END
 
 " ignore tmp for ctrlp
 set wildignore+=*/tmp/*
+
+let g:solarized_termcolors=256
+
+" Switch to light theme
+function! SetLightTheme()
+  set background=light
+  colorscheme solarized
+endfunction
