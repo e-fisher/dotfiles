@@ -398,3 +398,7 @@ function! SetLightTheme()
   set background=light
   colorscheme solarized
 endfunction
+
+" Disable auto comment on new line
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
