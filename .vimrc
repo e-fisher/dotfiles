@@ -366,13 +366,13 @@ nmap s <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
 
 let g:gutentags_exclude = ['*.js']
-command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 
 " use blowfish2 for encryption
 set cm=blowfish2
 
 " mkdir when does not exist on save
-function s:MkNonExDir(file, buf)
+function! s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
         let dir=fnamemodify(a:file, ':h')
         if !isdirectory(dir)
