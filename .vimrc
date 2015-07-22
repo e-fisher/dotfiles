@@ -39,7 +39,6 @@ Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'mattn/emmet-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'takac/vim-hardtime'
 Plugin 'slim-template/vim-slim'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'Lokaltog/vim-easymotion'
@@ -337,11 +336,6 @@ nnoremap gb :ls<CR>:b<Space>
 nnoremap <PageUp>   :bprevious<CR>
 nnoremap <PageDown> :bnext<CR>
 nnoremap <C-q> <C-^>
-
-let g:hardtime_default_on = 1
-let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
-let g:hardtime_ignore_quickfix = 1
-let g:hardtime_maxcount = 2
 
 " Easymotion search
 map  / <Plug>(easymotion-sn)
