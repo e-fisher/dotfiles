@@ -292,9 +292,8 @@ autocmd FileType slim setlocal shiftwidth=2 tabstop=2
 " nnoremap ; :
 
 " use an undo file to preserve history
-set undofile
 " set a directory to store the undo history
-set undodir=~/.vimundo/
+set undofile undodir=~/.vim/undo/
 
 let g:airline_powerline_fonts = 1
 
