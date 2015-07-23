@@ -45,6 +45,9 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'justinmk/vim-gtfo'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'xolox/vim-notes'
+Plugin 'xolox/vim-misc'
+Plugin 'mbbill/undotree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -108,21 +111,11 @@ autocmd FileType eruby setlocal colorcolumn=80
 autocmd FileType haml setlocal colorcolumn=80
 autocmd FileType slim setlocal colorcolumn=80
 
-" highlight trailing spaces in annoying red
-" highlight ExtraWhitespace ctermbg=1 guibg=red
-" match ExtraWhitespace /\s\+$/
-" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-" autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-" autocmd BufWinLeave * call clearmatches()
-
 " toggle spell check with <F5>
 map <F5> :setlocal spell! spelllang=en_us<cr>
 imap <F5> <ESC>:setlocal spell! spelllang=en_us<cr>
 
-
 " Visual decorations
-
 " Show what mode you’re currently in
 set showmode
 " Show what commands you’re typing
@@ -131,7 +124,6 @@ set showcmd
 set modeline
 " Show file title in terminal tab
 set title
-
 
 
 " jump to last position in file
@@ -287,10 +279,7 @@ autocmd FileType html setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
 autocmd FileType slim setlocal shiftwidth=2 tabstop=2
 
-" remap ; to :
-" nnoremap ; :
-
-" use an undo file to preserve history
+" use an undo file to preserve history and
 " set a directory to store the undo history
 set undofile undodir=~/.vim/undo/
 
@@ -353,7 +342,7 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 
-" let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 " nmap s <Plug>(easymotion-s)
 nmap s <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
@@ -395,3 +384,17 @@ endfunction
 " Disable auto comment on new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" Changes notes locaiton
+let g:notes_directories = ['~/Dropbox/documents/vim_notes/']
+
+" Search Ruby
+nnoremap <leader><leader>r :Ag! <Space>-G="*.rb" <S-Left><Left>
+" Search JavaScripts
+nnoremap <leader><leader>j :Ag! <Space>-G="*.(js\|coffee)" --ignore-dir=public<S-Left><S-Left><Left>
+" Search Stylesheets
+nnoremap <leader><leader>s :Ag! <Space>-G="*.(css\|scss)" --ignore-dir=public<S-Left><S-Left><Left>
+" Search View Files
+nnoremap <leader><leader>v :Ag! <Space>-G="*.(html.erb\|html.slim\|slim)" <S-Left><Left>
+
+" Set Y to behave same as D and C
+nnoremap Y y$
