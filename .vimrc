@@ -398,3 +398,6 @@ nnoremap <leader><leader>v :Ag! <Space>-G="*.(html.erb\|html.slim\|slim)" <S-Lef
 
 " Set Y to behave same as D and C
 nnoremap Y y$
+
+" Convert ruby hash to new syntax
+nnoremap <leader>ch :%s/:\([^ ]*\)\(\s*\)=>/\1:/g <CR>
