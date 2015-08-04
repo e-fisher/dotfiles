@@ -351,7 +351,7 @@ let g:gutentags_exclude = ['*.js']
 command! W w !sudo tee % > /dev/null
 
 " use blowfish2 for encryption
-set cm=blowfish2
+set cm=blowfish
 
 " mkdir when does not exist on save
 function! s:MkNonExDir(file, buf)
