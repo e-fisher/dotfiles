@@ -94,6 +94,7 @@ set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
 set lazyredraw                    " improve scroll performance
 set noswapfile                    " no swp files
+set nowritebackup                 " fix multiple triggers in guard
 set updatetime=750                " faster update for gitgutter
 set history=1000                  " remember more commands and search history
 set undolevels=1000               " use many muchos levels of undo
