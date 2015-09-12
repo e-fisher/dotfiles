@@ -48,6 +48,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'xolox/vim-notes'
 Plugin 'xolox/vim-misc'
 Plugin 'mbbill/undotree'
+Plugin 'karlbright/qfdo.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -405,3 +406,6 @@ nnoremap <leader>ch :%s/:\([^ ]*\)\(\s*\)=>/\1:/g <CR>
 
 " Required by gitgutter in fish shell
 set shell=/bin/bash
+
+" Search and replace word under cursor
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
