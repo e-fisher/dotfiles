@@ -4,6 +4,7 @@
 *.min.*
 bundle
 min
-vendor
 tags
 cscope.*
+tmp
+.git
