@@ -410,6 +410,9 @@ set shell=/bin/bash
 " Search and replace word under cursor
 :nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 
+" Search and replace visual selection
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
