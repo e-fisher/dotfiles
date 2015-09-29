@@ -424,3 +424,7 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+" Open new split panes to right and bottom, feels more natural than default
+set splitbelow
+set splitright
