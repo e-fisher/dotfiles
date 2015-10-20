@@ -199,14 +199,15 @@ function! RunNearestTest()
 endfunction
 
 " run test runner
-map <leader>t :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
+" map <leader>t :call RunTestFile()<cr>
+" map <leader>T :call RunNearestTest()<cr>
 
 " ctrlp config
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
+nmap <leader>t :CtrlPTag<cr>
 
 " highlight the status bar when in insert mode
 if version >= 700
@@ -428,3 +429,6 @@ endif
 " Open new split panes to right and bottom, feels more natural than default
 set splitbelow
 set splitright
+
+" Complete emmet abbreviations with tab in css and scss files
+autocmd FileType css,scss imap <buffer> <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
