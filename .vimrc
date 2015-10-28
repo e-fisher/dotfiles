@@ -399,6 +399,9 @@ nnoremap <leader><leader>s :Ag! <Space>-G="*.(css\|scss)" --ignore-dir=public<S-
 " Search View Files
 nnoremap <leader><leader>v :Ag! <Space>-G="*.(html.erb\|html.slim\|slim)" <S-Left><Left>
 
+" Disable ag mapping message
+let g:ag_mapping_message=0
+
 " Set Y to behave same as D and C
 nnoremap Y y$
 
