@@ -49,6 +49,7 @@ Plugin 'xolox/vim-notes'
 Plugin 'xolox/vim-misc'
 Plugin 'mbbill/undotree'
 Plugin 'karlbright/qfdo.vim'
+Plugin 'godlygeek/tabular'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
