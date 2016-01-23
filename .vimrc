@@ -4,56 +4,49 @@ set encoding=utf-8
 " No compatibility
 set nocompatible
 
-" required
-filetype off
+call plug#begin()
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'rking/ag.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'Chiel92/vim-autoformat'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-surround'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'kana/vim-textobj-user'
+Plug 'wakatime/vim-wakatime'
+Plug 'bling/vim-airline'
+Plug 'edkolev/tmuxline.vim'
+Plug 'mhinz/vim-startify'
+Plug 'nanotech/jellybeans.vim'
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
+Plug 'captbaritone/better-indent-support-for-php-with-html'
+Plug 'mattn/emmet-vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'kchmck/vim-coffee-script'
+Plug 'slim-template/vim-slim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'justinmk/vim-gtfo'
+Plug 'altercation/vim-colors-solarized'
+Plug 'xolox/vim-notes'
+Plug 'xolox/vim-misc'
+Plug 'mbbill/undotree'
+Plug 'karlbright/qfdo.vim'
+Plug 'godlygeek/tabular'
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'rking/ag.vim'
-Plugin 'jiangmiao/auto-pairs.git'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdcommenter.git'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'Chiel92/vim-autoformat.git'
-Plugin 'tpope/vim-bundler.git'
-Plugin 'tpope/vim-endwise.git'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter.git'
-Plugin 'tpope/vim-rails.git'
-Plugin 'vim-ruby/vim-ruby.git'
-Plugin 'tpope/vim-surround.git'
-Plugin 'nelstrom/vim-textobj-rubyblock.git'
-Plugin 'kana/vim-textobj-user.git'
-Plugin 'wakatime/vim-wakatime.git'
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'mhinz/vim-startify'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'ervandew/supertab'
-Plugin 'SirVer/ultisnips'
-Plugin 'captbaritone/better-indent-support-for-php-with-html'
-Plugin 'mattn/emmet-vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'slim-template/vim-slim'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'justinmk/vim-gtfo'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'xolox/vim-notes'
-Plugin 'xolox/vim-misc'
-Plugin 'mbbill/undotree'
-Plugin 'karlbright/qfdo.vim'
-Plugin 'godlygeek/tabular'
+call plug#end()
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+filetype plugin indent on
 
 " Remap leader to space
 let mapleader = "\<Space>"
