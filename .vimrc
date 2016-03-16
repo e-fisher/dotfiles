@@ -23,6 +23,7 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'kana/vim-textobj-user'
 Plug 'wakatime/vim-wakatime'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'mhinz/vim-startify'
 Plug 'nanotech/jellybeans.vim'
@@ -43,17 +44,16 @@ Plug 'xolox/vim-misc'
 Plug 'mbbill/undotree'
 Plug 'karlbright/qfdo.vim'
 Plug 'godlygeek/tabular'
+Plug 'takac/vim-hardtime'
 
 call plug#end()
+
+let g:hardtime_default_on = 1
 
 filetype plugin indent on
 
 " Remap leader to space
 let mapleader = "\<Space>"
-
-" load up pathogen and all bundles
-" call pathogen#infect()
-" call pathogen#helptags()
 
 " 256 colours, please
 set t_Co=256
@@ -61,7 +61,7 @@ set t_Co=256
 " Color scheme
 set background=dark
 colorscheme jellybeans
-let g:airline_theme='tomorrow'
+" let g:airline_theme='jellybeans'
 
 syntax on                         " show syntax highlighting
 filetype plugin indent on
