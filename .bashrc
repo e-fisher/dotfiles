@@ -16,9 +16,13 @@ shopt -s histappend
 shopt -s hostcomplete
 shopt -s nocaseglob
 
-export HISTSIZE=10000
-export HISTFILESIZE=${HISTSIZE}
-export HISTCONTROL=ignoreboth
+# export HISTSIZE=10000
+# export HISTFILESIZE=${HISTSIZE}
+# export HISTCONTROL=ignoreboth
+HISTFILESIZE=400000000
+HISTSIZE=10000
+PROMPT_COMMAND="history -a"
+shopt -s histappend
 
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F --block-size=M'
