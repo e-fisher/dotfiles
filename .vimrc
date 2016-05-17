@@ -429,3 +429,6 @@ set splitright
 
 " Complete emmet abbreviations with tab in css and scss files
 autocmd FileType css,scss imap <buffer> <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+" Substitute selection without copying to current register
+vmap r "_dP
