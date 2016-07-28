@@ -345,6 +345,8 @@ nmap s <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
 
 let g:gutentags_exclude = ['*.js']
+let g:gutentags_cache_dir = "~/.vim/tags/"
+
 command! W w !sudo tee % > /dev/null
 
 " use blowfish2 for encryption
