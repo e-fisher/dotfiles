@@ -21,7 +21,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-surround'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'kana/vim-textobj-user'
-Plug 'e-fisher/vim-wakatime'
+Plug 'wakatime/vim-wakatime'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
@@ -45,6 +45,10 @@ Plug 'mbbill/undotree'
 Plug 'karlbright/qfdo.vim'
 Plug 'godlygeek/tabular'
 Plug 'takac/vim-hardtime'
+" Plug '~/www/vim-tracker'
+Plug 'mxw/vim-jsx'
+Plug 'joshdick/onedark.vim'
+
 
 call plug#end()
 
@@ -60,11 +64,18 @@ set t_Co=256
 
 " Color scheme
 set background=dark
-colorscheme jellybeans
+colorscheme onedark
+
 " let g:airline_theme='jellybeans'
+let g:airline#extensions#tmuxline#enabled = 0
 
 syntax on                         " show syntax highlighting
 filetype plugin indent on
+
+" add truecolor support, if available
+if has('termguicolors')
+  set termguicolors
+endif
 
 set autoindent                    " set auto indent
 set ts=2                          " set indent to 2 spaces
@@ -119,7 +130,7 @@ set showcmd
 " Allow modelines
 set modeline
 " Show file title in terminal tab
-set title
+" set title
 
 
 " jump to last position in file
@@ -247,6 +258,8 @@ map <leader>gw :Gwrite<cr>
 map <leader>gc :Gcommit -a<cr>
 map <leader>gs :Gstatus<cr>
 map <leader>ga :Git add -A<cr>
+" vertical split for gdiff
+set diffopt+=vertical
 
 
 " detect changes outside vim
@@ -350,7 +363,7 @@ let g:gutentags_cache_dir = "~/.vim/tags/"
 command! W w !sudo tee % > /dev/null
 
 " use blowfish2 for encryption
-set cm=blowfish
+" set cm=blowfish
 
 " mkdir when does not exist on save
 function! s:MkNonExDir(file, buf)
@@ -434,3 +447,17 @@ autocmd FileType css,scss imap <buffer> <expr> <tab> emmet#expandAbbrIntelligent
 
 " Substitute selection without copying to current register
 vmap r "_dP
+
+" Enable rspec syntax highlight in non-rails projects
+autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like
+  \ before after setup subject its shared_examples_for shared_context let
+highlight def link rubyRspec Function
+
+" Enable jsx highlight in js files
+let g:jsx_ext_required = 0
+
+" Disable Background Color Erase (BCE) so that color schemes
+" work properly when Vim is used inside tmux and GNU screen.
+if &term =~ '256color'
+  set t_ut=
+endif
