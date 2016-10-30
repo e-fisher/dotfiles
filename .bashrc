@@ -121,7 +121,7 @@ alias rt="spring rspec"
 alias rmg="spring rake db:migrate"
 alias rrb="spring rake db:rollback"
 alias mux="tmuxinator"
-alias svim="sudoedit"
+alias svim="sudo -E vim"
 
 
 if [ -n "$SSH_CLIENT"  ]; then
