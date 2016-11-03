@@ -399,6 +399,8 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Changes notes locaiton
 let g:notes_directories = ['~/Dropbox/documents/vim_notes/']
 
+" Search
+nnoremap <C-f> :Ag!<Space>
 " Search Ruby
 nnoremap <leader><leader>r :Ag! <Space>-G="*.rb" <S-Left><Left>
 " Search JavaScripts
