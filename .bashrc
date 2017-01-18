@@ -122,8 +122,12 @@ alias rmg="spring rake db:migrate"
 alias rrb="spring rake db:rollback"
 alias mux="tmuxinator"
 alias svim="sudo -E vim"
+alias tl="tail -n 100"
 
 
 if [ -n "$SSH_CLIENT"  ]; then
     export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 fi
+
+# Set vi mode
+set -o vi
