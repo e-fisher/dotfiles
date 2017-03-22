@@ -123,6 +123,7 @@ alias rrb="spring rake db:rollback"
 alias mux="tmuxinator"
 alias svim="sudo -E vim"
 alias tl="tail -n 100"
+function grp { grep -rnIi "$1" . --color; }
 
 
 if [ -n "$SSH_CLIENT"  ]; then
