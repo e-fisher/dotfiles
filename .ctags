@@ -1,1 +1,3 @@
 --fields=+l
+--exclude=node_modules
+
