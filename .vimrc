@@ -36,7 +36,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'mhinz/vim-startify'
 Plug 'nanotech/jellybeans.vim'
 Plug 'ervandew/supertab'
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'mattn/emmet-vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -54,13 +54,16 @@ Plug 'karlbright/qfdo.vim'
 Plug 'godlygeek/tabular'
 Plug 'takac/vim-hardtime'
 " Plug '~/www/vim-tracker'
-Plug 'mxw/vim-jsx'
 Plug 'joshdick/onedark.vim'
+Plug 'alvan/vim-closetag'
+Plug 'Valloric/YouCompleteMe'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 
 call plug#end()
 
-let g:hardtime_default_on = 1
+" let g:hardtime_default_on = 1
 
 filetype plugin indent on
 
@@ -125,6 +128,7 @@ autocmd FileType ruby setlocal colorcolumn=80
 autocmd FileType eruby setlocal colorcolumn=80
 autocmd FileType haml setlocal colorcolumn=80
 autocmd FileType slim setlocal colorcolumn=80
+autocmd FileType javascript setlocal colorcolumn=80
 
 " toggle spell check with <F5>
 map <F5> :setlocal spell! spelllang=en_us<cr>
@@ -137,8 +141,8 @@ set showmode
 set showcmd
 " Allow modelines
 set modeline
-" Show file title in terminal tab
-" set title
+" Disable file title in terminal tab
+set notitle
 
 
 " jump to last position in file
@@ -330,13 +334,19 @@ let g:startify_skiplist = [
     \ ]
 
 " let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "<c-n>"
+" Disable completion preview in a separate window
 set completeopt-=preview
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsJumpForwardTrigger = "<tab>"
+" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Quickly navigate between buffers
 nnoremap gb :ls<CR>:b<Space>
@@ -345,14 +355,14 @@ nnoremap <PageDown> :bnext<CR>
 nnoremap <C-q> <C-^>
 
 " Easymotion search
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
 
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+" map  n <Plug>(easymotion-next)
+" map  N <Plug>(easymotion-prev)
 
 " Easymotion nav
 map <Leader>l <Plug>(easymotion-lineforward)
@@ -365,7 +375,7 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 nmap s <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
 
-let g:gutentags_exclude = ['*.js']
+" let g:gutentags_ctags_exclude = ['*.js']
 let g:gutentags_cache_dir = "~/.vim/tags/"
 
 command! W w !sudo tee % > /dev/null
@@ -471,3 +481,11 @@ let g:jsx_ext_required = 0
 if &term =~ '256color'
   set t_ut=
 endif
+
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.php"
+
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+" Don't jump to closing bracket/paran on next line
+let g:AutoPairsMultilineClose = 0
+
