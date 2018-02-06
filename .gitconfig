@@ -20,6 +20,5 @@
 [credential]
 	helper = cache --timeout=3600
 [merge]
-	ff = false
 [push]
 	default = simple
