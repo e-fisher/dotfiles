@@ -123,6 +123,7 @@ alias rrb="spring rake db:rollback"
 alias mux="tmuxinator"
 alias svim="sudo -E vim"
 alias tl="tail -n 100"
+alias vim="nvim"
 function grp { grep -rnIi "$1" . --color; }
 
 
@@ -132,3 +133,15 @@ fi
 
 # Set vi mode
 set -o vi
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /home/edgar/www/composer-api-serverless/node_modules/tabtab/.completions/serverless.bash ] && . /home/edgar/www/composer-api-serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /home/edgar/www/composer-api-serverless/node_modules/tabtab/.completions/sls.bash ] && . /home/edgar/www/composer-api-serverless/node_modules/tabtab/.completions/sls.bash
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /home/edgar/www/analytics/node_modules/tabtab/.completions/slss.bash ] && . /home/edgar/www/analytics/node_modules/tabtab/.completions/slss.bash
