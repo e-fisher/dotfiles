@@ -1,0 +1,4 @@
+{
+	"suggest.timeout": 500,
+	"suggest.minTriggerInputLength": 3
+}
