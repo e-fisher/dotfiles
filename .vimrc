@@ -24,12 +24,11 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
+" Plug 'tpope/vim-rails'
+" Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-surround'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'kana/vim-textobj-user'
-Plug 'wakatime/vim-wakatime'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
@@ -40,8 +39,6 @@ Plug 'SirVer/ultisnips'
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'mattn/emmet-vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'kchmck/vim-coffee-script'
-Plug 'slim-template/vim-slim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -52,20 +49,17 @@ Plug 'xolox/vim-misc'
 Plug 'mbbill/undotree'
 Plug 'karlbright/qfdo.vim'
 Plug 'godlygeek/tabular'
-Plug 'takac/vim-hardtime'
-" Plug '~/www/vim-tracker'
-Plug 'joshdick/onedark.vim'
 Plug 'alvan/vim-closetag'
-Plug 'Valloric/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'joshdick/onedark.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'sheerun/vim-polyglot'
 
 
 call plug#end()
-
-" let g:hardtime_default_on = 1
-
 filetype plugin indent on
+let g:polyglot_disabled = ['jsx']
 
 " Remap leader to space
 let mapleader = "\<Space>"
@@ -115,6 +109,8 @@ set nowritebackup                 " fix multiple triggers in guard
 set updatetime=750                " faster update for gitgutter
 set history=1000                  " remember more commands and search history
 set undolevels=1000               " use many muchos levels of undo
+set hidden                        " coc
+set synmaxcol=0
 
 runtime macros/matchit.vim        " use % to jump between start/end of methods
 
@@ -129,6 +125,8 @@ autocmd FileType eruby setlocal colorcolumn=80
 autocmd FileType haml setlocal colorcolumn=80
 autocmd FileType slim setlocal colorcolumn=80
 autocmd FileType javascript setlocal colorcolumn=80
+autocmd FileType typescript setlocal colorcolumn=80
+autocmd FileType typescript.jsx setlocal colorcolumn=80
 
 " toggle spell check with <F5>
 map <F5> :setlocal spell! spelllang=en_us<cr>
@@ -264,7 +262,9 @@ nmap <silent> <leader>rv :so $MYVIMRC<CR>
 " git
 map <leader>gb :Gblame -w<cr>
 map <leader>gd :Gdiff<cr>
-map <leader>gr :GitGutterRevertHunk<cr>
+" map <leader>gr :GitGutterRevertHunk<cr>
+nmap <Leader>gr <Plug>GitGutterUndoHunk
+
 map <leader>gp :GitGutterPreviewHunk<cr>
 map <leader>gw :Gwrite<cr>
 map <leader>gc :Gcommit -a<cr>
@@ -334,14 +334,9 @@ let g:startify_skiplist = [
     \ ]
 
 " let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-" let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "<c-n>"
 " Disable completion preview in a separate window
-set completeopt-=preview
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+" set completeopt-=preview
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -375,7 +370,7 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 nmap s <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
 
-" let g:gutentags_ctags_exclude = ['*.js']
+let g:gutentags_ctags_exclude = ['node_modules']
 let g:gutentags_cache_dir = "~/.vim/tags/"
 
 command! W w !sudo tee % > /dev/null
@@ -482,10 +477,19 @@ if &term =~ '256color'
   set t_ut=
 endif
 
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.php"
-
-let g:ycm_collect_identifiers_from_tags_files = 1
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.php,*.tsx,*.jsx"
 
 " Don't jump to closing bracket/paran on next line
 let g:AutoPairsMultilineClose = 0
 
+" Paste without copying
+xnoremap p "_dP
+
+" Disable coc for notes
+autocmd FileType notes let b:coc_suggest_disable = 1
+
+
+" Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>p  <Plug>(coc-format-selected)
+nmap <leader>p  <Plug>(coc-format-selected)
