@@ -36,30 +36,27 @@ Plug 'mhinz/vim-startify'
 Plug 'nanotech/jellybeans.vim'
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
-Plug 'captbaritone/better-indent-support-for-php-with-html'
+" Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'mattn/emmet-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'justinmk/vim-gtfo'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 Plug 'mbbill/undotree'
 Plug 'karlbright/qfdo.vim'
 Plug 'godlygeek/tabular'
 Plug 'alvan/vim-closetag'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'joshdick/onedark.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
-
+Plug 'drewtempelmeyer/palenight.vim'
 
 call plug#end()
 filetype plugin indent on
-let g:polyglot_disabled = ['jsx']
 
 " Remap leader to space
 let mapleader = "\<Space>"
@@ -493,3 +490,7 @@ autocmd FileType notes let b:coc_suggest_disable = 1
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 vmap <leader>p  <Plug>(coc-format-selected)
 nmap <leader>p  <Plug>(coc-format-selected)
+
+
+" Coc error color
+hi CocErrorSign guifg=#ff5447
