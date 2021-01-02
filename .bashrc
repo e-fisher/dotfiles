@@ -20,7 +20,7 @@ shopt -s nocaseglob
 # export HISTFILESIZE=${HISTSIZE}
 # export HISTCONTROL=ignoreboth
 HISTFILESIZE=400000000
-HISTSIZE=10000
+HISTSIZE=100000
 PROMPT_COMMAND="history -a"
 shopt -s histappend
 
@@ -145,3 +145,5 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [ -f /home/edgar/www/analytics/node_modules/tabtab/.completions/slss.bash ] && . /home/edgar/www/analytics/node_modules/tabtab/.completions/slss.bash
+
+export REVIEW_BASE=master git review
