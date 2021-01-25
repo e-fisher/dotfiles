@@ -147,3 +147,8 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 [ -f /home/edgar/www/analytics/node_modules/tabtab/.completions/slss.bash ] && . /home/edgar/www/analytics/node_modules/tabtab/.completions/slss.bash
 
 export REVIEW_BASE=master git review
+
+# autocomplete first match
+bind "TAB:menu-complete"
+bind "set show-all-if-ambiguous on"
+bind 'set completion-ignore-case on'
