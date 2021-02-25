@@ -260,7 +260,7 @@ nmap <silent> <leader>rv :so $MYVIMRC<CR>
 map <leader>gb :Gblame -w<cr>
 map <leader>gd :Gdiff<cr>
 " map <leader>gr :GitGutterRevertHunk<cr>
-nmap <Leader>gr <Plug>GitGutterUndoHunk
+nmap <Leader>gr <Plug>(GitGutterUndoHunk)
 
 map <leader>gp :GitGutterPreviewHunk<cr>
 map <leader>gw :Gwrite<cr>
@@ -494,3 +494,6 @@ nmap <leader>p  <Plug>(coc-format-selected)
 
 " Coc error color
 hi CocErrorSign guifg=#ff5447
+
+" Disable autopair toggle shortcut
+let g:AutoPairsShortcutToggle = ''
