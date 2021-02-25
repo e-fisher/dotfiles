@@ -121,7 +121,7 @@ alias rt="spring rspec"
 alias rmg="spring rake db:migrate"
 alias rrb="spring rake db:rollback"
 alias mux="tmuxinator"
-alias svim="sudo -E vim"
+alias svim="sudo -E nvim"
 alias tl="tail -n 100"
 alias vim="nvim"
 function grp { grep -rnIi "$1" . --color; }
@@ -152,3 +152,4 @@ export REVIEW_BASE=master git review
 bind "TAB:menu-complete"
 bind "set show-all-if-ambiguous on"
 bind 'set completion-ignore-case on'
+export PATH=/home/edgar/.yarn/bin:/home/edgar/.config/yarn/global/node_modules/.bin:/usr/local/heroku/bin:/home/edgar/.local/bin:/home/edgar/.yarn/bin:/home/edgar/.config/yarn/global/node_modules/.bin:/usr/local/heroku/bin:/home/edgar/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/edgar/.rvm/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/home/edgar/.rvm/bin:/home/edgar/.npm-global/bin
