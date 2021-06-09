@@ -31,3 +31,6 @@ for file in !(.|..|.git|.gitmodules|install.sh|README.md); do
     echo "== creating symlink $dir/$file ~/$file"
     ln -sT $dir/$file ~/$file
 done
+
+# symlink nvim config
+ln -s ~/.vimrc ~/.config/nvim/init.vim

@@ -97,7 +97,7 @@ set ruler                         " show row and column in footer
 set scrolloff=4                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
 set nofoldenable                  " disable code folding
-set clipboard=unnamedplus         " use the system clipboard
+set clipboard+=unnamedplus        " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
 set lazyredraw                    " improve scroll performance
