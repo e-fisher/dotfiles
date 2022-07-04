@@ -20,43 +20,30 @@ Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Chiel92/vim-autoformat'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-" Plug 'tpope/vim-rails'
-" Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-surround'
-Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'kana/vim-textobj-user'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'mhinz/vim-startify'
-Plug 'nanotech/jellybeans.vim'
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
-" Plug 'captbaritone/better-indent-support-for-php-with-html'
-Plug 'mattn/emmet-vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'justinmk/vim-gtfo'
-" Plug 'altercation/vim-colors-solarized'
-Plug 'xolox/vim-notes'
-Plug 'xolox/vim-misc'
 Plug 'mbbill/undotree'
-Plug 'karlbright/qfdo.vim'
-Plug 'godlygeek/tabular'
 Plug 'alvan/vim-closetag'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+Plug 'fannheyward/coc-styled-components', {'do': 'yarn install --frozen-lockfile'}
+Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'drewtempelmeyer/palenight.vim'
 
 call plug#end()
 filetype plugin indent on
@@ -71,7 +58,6 @@ set t_Co=256
 set background=dark
 colorscheme onedark
 
-" let g:airline_theme='jellybeans'
 let g:airline#extensions#tmuxline#enabled = 0
 
 syntax on                         " show syntax highlighting
@@ -106,7 +92,7 @@ set wildmode=list:longest,full
 set lazyredraw                    " improve scroll performance
 set noswapfile                    " no swp files
 set nowritebackup                 " fix multiple triggers in guard
-set updatetime=750                " faster update for gitgutter
+set updatetime=250                " faster update for gitgutter
 set history=1000                  " remember more commands and search history
 set undolevels=1000               " use many muchos levels of undo
 set hidden                        " coc
@@ -140,16 +126,13 @@ set showcmd
 " Allow modelines
 set modeline
 " Disable file title in terminal tab
-set notitle
-
+" set notitle
 
 " jump to last position in file
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal g`\"" |
   \ endif
-
-
 
 " rename current file, via Gary Bernhardt
 function! RenameFile()
@@ -161,61 +144,8 @@ function! RenameFile()
     redraw!
   endif
 endfunction
-map <leader>n :call RenameFile()<cr>
-
-
-" tests
-function! RunTests(filename)
-  " Write the file and run tests for the given filename
-  :w
-  :silent !clear
-  if match(a:filename, '\.feature$') != -1
-    exec ":!bundle exec cucumber " . a:filename
-  elseif match(a:filename, '_test\.rb$') != -1
-    if filereadable("bin/testrb")
-      exec ":!bin/testrb " . a:filename
-    else
-      exec ":!ruby -Itest " . a:filename
-    end
-  else
-    if filereadable("Gemfile")
-      exec ":!bundle exec rspec --color " . a:filename
-    else
-      exec ":!rspec --color " . a:filename
-    end
-  end
-endfunction
-
-function! SetTestFile()
-  " set the spec file that tests will be run for.
-  let t:grb_test_file=@%
-endfunction
-
-function! RunTestFile(...)
-  if a:0
-    let command_suffix = a:1
-  else
-    let command_suffix = ""
-  endif
-
-  " run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-  if in_test_file
-    call SetTestFile()
-  elseif !exists("t:grb_test_file")
-    return
-  end
-  call RunTests(t:grb_test_file . command_suffix)
-endfunction
-
-function! RunNearestTest()
-  let spec_line_number = line('.')
-  call RunTestFile(":" . spec_line_number . " -b")
-endfunction
-
-" run test runner
-" map <leader>t :call RunTestFile()<cr>
-" map <leader>T :call RunNearestTest()<cr>
+" map <leader>n :call RenameFile()<cr>
+map <leader>n :CocCommand workspace.renameCurrentFile<cr>
 
 " ctrlp config
 let g:ctrlp_map = '<leader>f'
@@ -260,7 +190,7 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>rv :so $MYVIMRC<CR>
 
 " git
-map <leader>gb :Gblame -w<cr>
+map <leader>gb :Git blame -w<cr>
 map <leader>gd :Gdiff<cr>
 " map <leader>gr :GitGutterRevertHunk<cr>
 nmap <Leader>gr <Plug>(GitGutterUndoHunk)
@@ -286,7 +216,11 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 1000
 " let g:gitgutter_diff_args = '-w'
 " same color for sign column as line number
-highlight clear SignColumn
+" highlight clear SignColumn
+
+highlight CocFadeOut ctermfg=Gray  guifg=#807255
+" highlight CocHighlightText gui=underline
+highlight CocHighlightText guibg=#4b515e
 
 
 " <CTRL-s> to save
@@ -537,3 +471,19 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
+" highlight symbol under cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" coc nvim enter completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+
+" Show references
+nmap <silent> gr <Plug>(coc-references)
