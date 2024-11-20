@@ -16,7 +16,7 @@ call plug#begin()
 
 Plug 'rking/ag.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Chiel92/vim-autoformat'
@@ -27,8 +27,8 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'mhinz/vim-startify'
-Plug 'ervandew/supertab'
-Plug 'SirVer/ultisnips'
+" Plug 'ervandew/supertab'
+" Plug 'SirVer/ultisnips'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -42,8 +42,18 @@ Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
 Plug 'fannheyward/coc-styled-components', {'do': 'yarn install --frozen-lockfile'}
 Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+Plug 'github/copilot.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+Plug 'natecraddock/telescope-zf-native.nvim'
+Plug 'nvim-telescope/telescope-frecency.nvim'
 
 call plug#end()
 filetype plugin indent on
@@ -53,6 +63,7 @@ let mapleader = "\<Space>"
 
 " 256 colours, please
 set t_Co=256
+
 
 " Color scheme
 set background=dark
@@ -97,6 +108,7 @@ set history=1000                  " remember more commands and search history
 set undolevels=1000               " use many muchos levels of undo
 set hidden                        " coc
 set synmaxcol=0
+set synmaxcol=500                 " Syntax coloring lines that are too long just slows down the world
 
 runtime macros/matchit.vim        " use % to jump between start/end of methods
 
@@ -148,10 +160,20 @@ endfunction
 map <leader>n :CocCommand workspace.renameCurrentFile<cr>
 
 " ctrlp config
-let g:ctrlp_map = '<leader>f'
+" let g:ctrlp_map = '<leader>f'
+
+" fzf.vim
+nnoremap <leader>f :Files<CR>
+
+"telescope
+" nnoremap <leader>f <cmd>Telescope find_files<cr>
+
 let g:ctrlp_max_height = 30
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_match_window_reversed = 0
+" search by filename
+let g:ctrlp_by_filename = 1
+
 nmap <leader>t :CtrlPTag<cr>
 
 " highlight the status bar when in insert mode
@@ -228,7 +250,7 @@ noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <Esc>:update<CR>
 
-let g:ag_prg="ag --vimgrep --ignore tags"
+let g:ag_prg="ag --vimgrep --ignore tags --hidden"
 
 " 4 space indentation for html and php
 autocmd FileType html setlocal shiftwidth=4 tabstop=4
@@ -273,7 +295,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " set completeopt-=preview
 
 " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsExpandTrigger = "<tab>"
 " let g:UltiSnipsJumpForwardTrigger = "<tab>"
 " let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
@@ -381,7 +403,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -U -g ""'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -U --hidden -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
@@ -390,9 +412,6 @@ endif
 " Open new split panes to right and bottom, feels more natural than default
 set splitbelow
 set splitright
-
-" Complete emmet abbreviations with tab in css and scss files
-autocmd FileType css,scss imap <buffer> <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 " Substitute selection without copying to current register
 vmap r "_dP
@@ -427,6 +446,7 @@ autocmd FileType notes let b:coc_suggest_disable = 1
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 vmap <leader>p  <Plug>(coc-format-selected)
 nmap <leader>p  <Plug>(coc-format-selected)
+" nmap <c-p> <Plug>(coc-format)
 
 
 " Coc error color
@@ -437,6 +457,11 @@ let g:AutoPairsShortcutToggle = ''
 
 " go to definition
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation
+
+" Show references
+nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -485,5 +510,77 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 
-" Show references
-nmap <silent> gr <Plug>(coc-references)
+
+inoremap <silent><expr> <c-k> coc#refresh()
+
+" Make <tab> used for trigger completion, completion confirm, snippet expand and jump like VSCode.
+" inoremap <silent><expr> <TAB>
+      " \ coc#pum#visible() ? coc#_select_confirm() :
+      " \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      " \ CheckBackSpace() ? "\<TAB>" :
+      " \ coc#refresh()
+" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#next(1) : "\<C-h>"
+
+
+" Use tab for trigger completion with characters ahead and navigate
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackSpace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+
+" Telescope
+" Find files using Telescope command-line sugar.
+" nnoremap <leader>ff <cmd>Telescope oldfiles<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Remap copilot
+let g:copilot_no_tab_map = v:true
+imap <silent><script><expr> <C-e> coc#pum#visible() ? coc#pum#cancel() : copilot#Accept("\<C-e>")
+imap <C-]> <Plug>(copilot-next)
+
+" Initialize configuration dictionary
+let g:fzf_vim = {}
+
+let g:fzf_layout = { 'down': '40%' }
+let g:fzf_vim.preview_window = []
+
+map <leader>rr :CocRestart<cr>
+
+
+let g:copilot_workspace_folders = ["~/www"]

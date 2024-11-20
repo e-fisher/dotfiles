@@ -31,7 +31,7 @@
 	smudge = git-lfs smudge -- %f
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /private/var/folders/2x/bh5cfv5127x259vxjt5r49th0000gn/T/AppTranslocation/04CBA595-7C34-4EE8-A4CD-3319A7C51DF3/d/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

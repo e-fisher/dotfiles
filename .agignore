@@ -8,7 +8,9 @@ tags
 cscope.*
 tmp
 .git/
-node_modules
+.git
+node_modules/
 bower_components
 vendor
 /build
+.DS_Store
