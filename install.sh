@@ -29,8 +29,9 @@ echo "...done"
 for file in !(.|..|.git|.gitmodules|install.sh|README.md); do
     mv ~/$file $olddir/
     echo "== creating symlink $dir/$file ~/$file"
-    ln -sT $dir/$file ~/$file
+    ln -s $dir/$file ~/$file
 done
 
 # symlink nvim config
-ln -s ~/.vimrc ~/.config/nvim/init.vim
+mkdir ~/.config/nvim/
+ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim

@@ -145,7 +145,7 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 fzf-history-widget-accept() {
   fzf-history-widget
